@@ -160,7 +160,7 @@ echo "Installing $GIT_REPO/$PROJECT at branch $GIT_BRANCH and commit $GIT_COMMIT
 rm -rf $PROJECT
 git clone https://github.com/$GIT_REPO/$PROJECT --quiet
 cd $PROJECT
-git fetch $PROJECT $GIT_BRANCH:$GIT_BRANCH
+git fetch origin $GIT_BRANCH:$GIT_BRANCH
 #git fetch --tags https://github.com/pytorch/$PROJECT +refs/pull/*:refs/remotes/origin/pr/* --quiet
 git checkout $GIT_BRANCH
 git submodule update --init --recursive
