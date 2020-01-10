@@ -158,7 +158,7 @@ pip uninstall -y torch || true
 
 echo "Installing $GIT_REPO/$PROJECT at branch $GIT_BRANCH and commit $GIT_COMMIT"
 rm -rf $PROJECT
-git clone https://github.com/$GIT_REPO/$PROJECT --quiet
+git clone https://github.com/charleshofer/$PROJECT --quiet
 cd $PROJECT
 git fetch origin $GIT_BRANCH:$GIT_BRANCH
 #git fetch --tags https://github.com/pytorch/$PROJECT +refs/pull/*:refs/remotes/origin/pr/* --quiet
