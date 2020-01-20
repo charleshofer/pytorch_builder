@@ -43,9 +43,6 @@ df -h || true
 
 if [ "$OS" == "LINUX" ]; then
     if [ "$ARCH" == "ppc64le" ]; then
-        echo "running nvidia-smi"
-        nvidia-smi
-
         echo "Processor info"
         cat /proc/cpuinfo|grep "model name" | wc -l
         cat /proc/cpuinfo|grep "model name" | sort | uniq
