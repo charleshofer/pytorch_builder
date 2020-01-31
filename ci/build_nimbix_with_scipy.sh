@@ -183,8 +183,8 @@ if [ "$CREATE_ARTIFACTS"  == "YES" ]; then
 fi
 
 echo "Testing pytorch"
-export OMP_NUM_THREADS=4
-export MKL_NUM_THREADS=4
+export OMP_NUM_THREADS=1
+export MKL_NUM_THREADS=1
 
 chown -R jenkins /home/jenkins
 # New pytorch test script
