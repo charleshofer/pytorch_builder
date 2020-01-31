@@ -183,16 +183,16 @@ if [ "$CREATE_ARTIFACTS"  == "YES" ]; then
 fi
 
 echo "Testing pytorch"
-export OMP_NUM_THREADS=4
-export MKL_NUM_THREADS=4
+export OMP_NUM_THREADS=1
+export MKL_NUM_THREADS=1
 
 chown -R jenkins /home/jenkins
 # New pytorch test script
 if [ $PYTHON_VERSION -eq 2 ]
 then
-  time su jenkins -c "ulimit -s unlimited; export PATH=/home/jenkins/miniconda/bin:/opt/miniconda/envs/py2k/bin:$PATH; export VALGRIND=${VALGRIND:=OFF}; .jenkins/pytorch/test.sh"
+  time su jenkins -c "ulimit -s unlimited -c 0; export PATH=/home/jenkins/miniconda/bin:/opt/miniconda/envs/py2k/bin:$PATH; export VALGRIND=${VALGRIND:=OFF}; .jenkins/pytorch/test.sh"
 else
-  time su jenkins -c "ulimit -s unlimited; export PATH=/home/jenkins/miniconda/bin:/opt/miniconda/bin:$PATH; export VALGRIND=${VALGRIND:=OFF}; .jenkins/pytorch/test.sh"
+  time su jenkins -c "ulimit -s unlimited -c 0; export PATH=/home/jenkins/miniconda/bin:/opt/miniconda/bin:$PATH; export VALGRIND=${VALGRIND:=OFF}; .jenkins/pytorch/test.sh"
 fi
 
 echo "ALL CHECKS PASSED"
