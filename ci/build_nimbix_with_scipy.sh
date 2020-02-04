@@ -186,6 +186,10 @@ echo "Testing pytorch"
 export OMP_NUM_THREADS=1
 export MKL_NUM_THREADS=1
 
+export DEBIAN_FRONTEND=noninteractive
+apt-get update
+apt-get install -y gdb
+
 chown -R jenkins /home/jenkins
 # New pytorch test script
 if [ $PYTHON_VERSION -eq 2 ]
